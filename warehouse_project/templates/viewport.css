@@ -1,0 +1,31 @@
+#warehouse {
+    display: grid;
+    grid-template-columns: repeat(10, 50px); /* 10 колонок */
+    grid-gap: 5px;
+    margin: 20px auto;
+    max-width: 100%;
+    justify-content: center;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    font-size: 14px;
+}
+
+.cell.occupied {
+    background-color: #f28c8c; /* Червоний для зайнятих місць */
+}
+
+.cell.free {
+    background-color: #a4d3a4; /* Зелений для вільних місць */
+}
+
+.cell.reserve {
+    background-color: #fdd835; /* Жовтий для резерву */
+}
