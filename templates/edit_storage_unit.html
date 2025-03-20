@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Редагувати одиницю зберігання</h2>
+
+<form method="POST" action="{{ url_for('main.edit_storage_unit', unit_id=unit.id) }}" class="shadow p-4 rounded bg-light">
+    <!-- ID -->
+    <div class="mb-3">
+        <label for="unit_id" class="form-label">№ (ID)</label>
+        <input type="text" class="form-control" id="unit_id" name="unit_id" value="{{ unit.unit_id }}" required>
+    </div>
+
+    <!-- Full Name -->
+    <div class="mb-3">
+        <label for="full_name" class="form-label">ФІО</label>
+        <input type="text" class="form-control" id="full_name" name="full_name" value="{{ unit.full_name }}" required>
+    </div>
+
+    <!-- Phone -->
+    <div class="mb-3">
+        <label for="phone" class="form-label">Телефон</label>
+        <input type="text" class="form-control" id="phone" name="phone" value="{{ unit.phone }}" required>
+    </div>
+
+    <!-- Car Number -->
+    <div class="mb-3">
+        <label for="car_number" class="form-label">Номер машини</label>
+        <input type="text" class="form-control" id="car_number" name="car_number" value="{{ unit.car_number }}">
+    </div>
+
+    <!-- Car Model -->
+    <div class="mb-3">
+        <label for="car_model" class="form-label">Модель машини</label>
+        <input type="text" class="form-control" id="car_model" name="car_model" value="{{ unit.car_model }}">
+    </div>
+
+    <!-- Tire Size -->
+    <div class="mb-3">
+        <label class="form-label">Розмір шин</label>
+        <div class="row g-2">
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="tire_width" value="{{ unit.tire_width }}" placeholder="Ширина">
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="tire_profile" value="{{ unit.tire_profile }}" placeholder="Профіль">
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="tire_diameter" value="{{ unit.tire_diameter }}" placeholder="Діаметр">
+            </div>
+        </div>
+    </div>
+
+    <!-- Tire Name -->
+    <div class="mb-3">
+        <label for="tire_name" class="form-label">Назва шин</label>
+        <input type="text" class="form-control" id="tire_name" name="tire_name" value="{{ unit.tire_name }}">
+    </div>
+
+    <!-- Has Disks -->
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="has_disks" name="has_disks" {% if unit.has_disks %}checked{% endif %}>
+        <label for="has_disks" class="form-check-label">Наявність дисків</label>
+    </div>
+
+    <!-- Tire Quantity -->
+    <div class="mb-3">
+        <label for="tire_quantity" class="form-label">Кількість шин</label>
+        <input type="number" class="form-control" id="tire_quantity" name="tire_quantity" value="{{ unit.tire_quantity }}">
+    </div>
+
+    <!-- Storage Date -->
+    <div class="mb-3">
+        <label for="storage_date" class="form-label">Дата зберігання</label>
+        <input type="date" class="form-control" id="storage_date" name="storage_date" value="{{ unit.storage_date }}">
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+        <button type="submit" class="btn btn-success">Зберегти зміни</button>
+        <a href="{{ url_for('main.home') }}" class="btn btn-secondary">Назад</a>
+    </div>
+</form>
+{% endblock %}
